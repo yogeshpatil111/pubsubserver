@@ -1,0 +1,143 @@
+$ curl -v -X POST localhost/kittens_and_puppies/Alice
+* Hostname was NOT found in DNS cache
+*   Trying ::1...
+* connect to ::1 port 8080 failed: Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> POST /kittens_and_puppies/Alice HTTP/1.1
+> User-Agent: curl/7.37.1
+> Host: localhost
+> Accept: */*
+> 
+< HTTP/1.1 200: Subscription succeeded.
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Mar 2015 03:23:15 GMT
+* Server localhost is not blacklisted
+< Server: localhost
+< 
+* Connection #0 to host localhost left intact
+
+
+$ curl -v -X POST localhost/kittens_and_puppies/Bob
+* Hostname was NOT found in DNS cache
+*   Trying ::1...
+* connect to ::1 port 8080 failed: Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> POST /kittens_and_puppies/Bob HTTP/1.1
+> User-Agent: curl/7.37.1
+> Host: localhost
+> Accept: */*
+> 
+< HTTP/1.1 200: Subscription succeeded.
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Mar 2015 03:23:42 GMT
+* Server localhost is not blacklisted
+< Server: localhost
+< 
+* Connection #0 to host localhost left intact
+
+$ curl -v -X POST localhost/kittens_and_puppies -d 'http://cuteoverload.files.wordpress.com/2014/10/unnamed23.jpg?w=750&h=1000'
+* Hostname was NOT found in DNS cache
+*   Trying ::1...
+* connect to ::1 port 8080 failed: Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> POST /kittens_and_puppies HTTP/1.1
+> User-Agent: curl/7.37.1
+> Host: localhost
+> Accept: */*
+> Content-Length: 74
+> Content-Type: application/x-www-form-urlencoded
+> 
+* upload completely sent off: 74 out of 74 bytes
+< HTTP/1.1 200: Publish succeeded.
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Mar 2015 03:24:16 GMT
+* Server localhost is not blacklisted
+< Server: localhost
+< 
+* Connection #0 to host localhost left intact
+
+
+$ curl -v -X GET localhost/kittens_and_puppies/Alice
+* Hostname was NOT found in DNS cache
+*   Trying ::1...
+* connect to ::1 port 8080 failed: Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> GET /kittens_and_puppies/Alice HTTP/1.1
+> User-Agent: curl/7.37.1
+> Host: localhost
+> Accept: */*
+> 
+< HTTP/1.1 200: Retrieval succeeded.
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Mar 2015 03:27:25 GMT
+* Server localhost is not blacklisted
+< Server: localhost
+< 
+* Connection #0 to host localhost left intact
+http://cuteoverload.files.wordpress.com/2014/10/unnamed23.jpg?w=750&h=1000
+
+$ curl -v -X GET localhost/kittens_and_puppies/Alice
+* Hostname was NOT found in DNS cache
+*   Trying ::1...
+* connect to ::1 port 8080 failed: Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> GET /kittens_and_puppies/Alice HTTP/1.1
+> User-Agent: curl/7.37.1
+> Host: localhost
+> Accept: */*
+> 
+< HTTP/1.1 204: There are no messages available for this topic on this user.
+< Date: Mon, 16 Mar 2015 03:28:40 GMT
+* Server localhost is not blacklisted
+< Server: localhost
+< 
+* Excess found in a non pipelined read: excess = 4 url = /kittens_and_puppies/Alice (zero-length body)
+* Connection #0 to host localhost left intact
+
+$ curl -v -X DELETE localhost/kittens_and_puppies/Bob
+* Hostname was NOT found in DNS cache
+*   Trying ::1...
+* connect to ::1 port 8080 failed: Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> DELETE /kittens_and_puppies/Bob HTTP/1.1
+> User-Agent: curl/7.37.1
+> Host: localhost
+> Accept: */*
+> 
+< HTTP/1.1 200: Unsubscribe succeeded.
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Mar 2015 03:46:35 GMT
+* Server localhost is not blacklisted
+< Server: localhost
+< 
+* Connection #0 to host localhost left intact
+
+$ curl -v -X DELETE localhost/kittens_and_puppies/Bob
+* Hostname was NOT found in DNS cache
+*   Trying ::1...
+* connect to ::1 port 8080 failed: Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> DELETE /kittens_and_puppies/Bob HTTP/1.1
+> User-Agent: curl/7.37.1
+> Host: localhost
+> Accept: */*
+> 
+< HTTP/1.1 404: The subscription does not exist.
+< Transfer-Encoding: chunked
+< Date: Mon, 16 Mar 2015 04:06:40 GMT
+* Server localhost is not blacklisted
+< Server: localhost
+< 
+* Connection #0 to host localhost left intact
+
+
+
+
+
